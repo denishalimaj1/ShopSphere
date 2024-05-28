@@ -136,3 +136,4 @@ C:\Users\denis\ProjektLAB1\ShopSphere\obj\Debug\net8.0\ShopSphere.pdb
 C:\Users\denis\ProjektLAB1\ShopSphere\obj\Debug\net8.0\ShopSphere.genruntimeconfig.cache
 C:\Users\denis\ProjektLAB1\ShopSphere\obj\Debug\net8.0\ref\ShopSphere.dll
 C:\Users\denis\ProjektLAB1\ShopSphere\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\denis\ProjektLAB1\ShopSphere\obj\Debug\net8.0\ShopSphere.sourcelink.json
