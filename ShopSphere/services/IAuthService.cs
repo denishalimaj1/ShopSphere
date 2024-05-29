@@ -7,5 +7,6 @@ namespace ShopSphere.Services
     {
         Task<User?> AuthenticateAsync(UserLoginModel loginModel);
         string GenerateJwtToken(User user);
+        Task<bool> ResetPasswordAsync(ResetPasswordModel resetPasswordModel);
     }
 }

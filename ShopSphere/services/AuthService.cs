@@ -52,6 +52,19 @@ namespace ShopSphere.Services
     return "Bearer " + tokenHandler.WriteToken(token);
 }
 
+public async Task<bool> ResetPasswordAsync(ResetPasswordModel resetPasswordModel)
+        {
+            var user = await _context.Users.SingleOrDefaultAsync(x => x.Username == resetPasswordModel.Username);
+            if (user == null)
+            {
+                return false;
+            }
+
+            user.PasswordHash = HashPassword(resetPasswordModel.NewPassword);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
 
         private bool VerifyPasswordHash(string password, string storedHash)
         {

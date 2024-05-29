@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ShopSphere.Models;
 using ShopSphere.Services;
@@ -27,5 +28,16 @@ namespace ShopSphere.Controllers
             var token = _authService.GenerateJwtToken(user);
             return Ok(new { token });
         }
+        [Authorize]
+        [HttpPut("reset-password")]
+public async Task<IActionResult> ResetPassword(ResetPasswordModel resetPasswordModel)
+{
+    var result = await _authService.ResetPasswordAsync(resetPasswordModel);
+    if (!result)
+    {
+        return NotFound("User not found.");
+    }
+    return NoContent();
+}
     }
 }
