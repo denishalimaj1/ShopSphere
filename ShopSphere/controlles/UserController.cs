@@ -58,7 +58,19 @@ namespace ShopSphere.Controllers
         {
             return BadRequest($"Failed to delete user: {ex.Message}");
         }
+        }
+        [Authorize]
+        [HttpGet("user/{id}")]
+        public async Task<IActionResult> GetUserById(int id)
+        {
+            var user = await _userService.GetUserByIdAsync(id);
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+            return Ok(user);
+        }
 }
 
     }
-}
+

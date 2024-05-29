@@ -149,5 +149,25 @@ namespace ShopSphere.Services
         _context.Users.Remove(existingUser);
         await _context.SaveChangesAsync();
     }
+
+        public async Task<GetUserDetails?> GetUserByIdAsync(int id)
+        {
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
+            {
+                return null;
+            }
+
+            return new GetUserDetails
+            {
+                Id = user.Id,
+                Username = user.Username,
+                Email = user.Email,
+                PasswordHash = user.PasswordHash,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                DateCreated = user.DateCreated
+            };
+        }
     }
 }

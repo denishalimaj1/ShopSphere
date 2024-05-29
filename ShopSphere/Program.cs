@@ -15,8 +15,10 @@ builder.Services.AddDbContext<ShopSphereContext>(options =>
 
 builder.Services.AddControllers(); // Add controllers
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddScoped<IUserService, UserService>(); // Register UserService
-builder.Services.AddScoped<IAuthService, AuthService>(); // Register LoginService
+builder.Services.AddScoped<IUserService, UserService>(); 
+builder.Services.AddScoped<IAuthService, AuthService>(); 
+
+
 
 // Add JWT authentication
 var jwtKey = builder.Configuration["JWT:Key"];
