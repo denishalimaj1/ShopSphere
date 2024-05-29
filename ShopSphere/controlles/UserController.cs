@@ -45,5 +45,20 @@ namespace ShopSphere.Controllers
                 return BadRequest($"Failed to update user: {ex.Message}");
             }
         }
+        [Authorize]
+        [HttpDelete("user/{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+        try
+        {
+            await _userService.DeleteUserAsync(id);
+            return NoContent();
+        }
+        catch (Exception ex)
+        {
+            return BadRequest($"Failed to delete user: {ex.Message}");
+        }
+}
+
     }
 }

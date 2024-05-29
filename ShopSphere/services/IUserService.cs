@@ -7,6 +7,7 @@ namespace ShopSphere.Services
     {
         Task<UserRegistrationModel> RegisterAsync(User userDto);
         Task<UserRegistrationModel> UpdateUserAsync(int id, UpdateUserModel userDto);
+         Task DeleteUserAsync(int id); 
         
     }
 }

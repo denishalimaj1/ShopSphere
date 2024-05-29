@@ -138,5 +138,16 @@ namespace ShopSphere.Services
                 return builder.ToString();
             }
         }
+         public async Task DeleteUserAsync(int id)
+        {
+        var existingUser = await _context.Users.FindAsync(id);
+        if (existingUser == null)
+        {
+            throw new Exception("User not found.");
+        }
+
+        _context.Users.Remove(existingUser);
+        await _context.SaveChangesAsync();
+    }
     }
 }

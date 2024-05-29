@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace ShopSphere.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/login")]
     public class LoginController : ControllerBase
     {
         private readonly IAuthService _authService;
