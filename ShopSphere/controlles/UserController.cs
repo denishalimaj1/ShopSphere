@@ -70,6 +70,13 @@ namespace ShopSphere.Controllers
             }
             return Ok(user);
         }
+        [Authorize]
+        [HttpGet("users")]
+        public async Task<ActionResult<IEnumerable<GetUserDetails>>> GetAllUsers()
+        {
+            var users = await _userService.GetAllUsersAsync();
+            return Ok(users);
+        }
 }
 
     }

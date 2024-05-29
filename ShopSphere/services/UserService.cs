@@ -169,5 +169,20 @@ namespace ShopSphere.Services
                 DateCreated = user.DateCreated
             };
         }
+        public async Task<IEnumerable<GetUserDetails?>> GetAllUsersAsync()
+        {
+            return await _context.Users
+                .Select(user => new GetUserDetails
+                {
+                    Id = user.Id,
+                    Username = user.Username,
+                    Email = user.Email,
+                    PasswordHash = user.PasswordHash,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    DateCreated = user.DateCreated
+                })
+                .ToListAsync();
+        }
     }
 }

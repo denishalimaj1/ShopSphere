@@ -9,6 +9,8 @@ namespace ShopSphere.Services
         Task<UserRegistrationModel> UpdateUserAsync(int id, UpdateUserModel userDto);
          Task DeleteUserAsync(int id); 
          Task<GetUserDetails?> GetUserByIdAsync(int id);
+
+          Task<IEnumerable<GetUserDetails?>> GetAllUsersAsync();
         
     }
 }
